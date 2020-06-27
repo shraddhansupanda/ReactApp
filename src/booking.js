@@ -8,40 +8,40 @@ import ConfirmExampleConfirm from './calander'
 
 const cards = [
   {
-    avatar: 'logo.jpg',
-    date: 'Joined in 2013',
+    // avatar: 'logo.jpg',
+    // date: 'Joined in 2013',
     header: 'Tennis Court',
-    description: 'Primary Contact',
+    // description: 'Primary Contact',
   },
   {
-    avatar: '/images/avatar/large/matthew.png',
-    date: 'Joined in 2013',
+    // avatar: '/images/avatar/large/matthew.png',
+    // date: 'Joined in 2013',
     header: 'Swimming Pool',
-    description: 'Primary Contact',
+    // description: 'Primary Contact',
   },
   {
-    avatar: '/images/avatar/large/molly.png',
-    date: 'Joined in 2013',
+    // avatar: '/images/avatar/large/molly.png',
+    // date: 'Joined in 2013',
     header: 'Badminton Court',
-    description: 'Primary Contact',
+    // description: 'Primary Contact',
   },
   {
-    avatar: '/images/avatar/large/molly.png',
-    date: 'Joined in 2013',
+    // avatar: '/images/avatar/large/molly.png',
+    // date: 'Joined in 2013',
     header: 'Gym',
-    description: 'Primary Contact',
+    // description: 'Primary Contact',
   },
   {
-    avatar: '/images/avatar/large/molly.png',
-    date: 'Joined in 2013',
+    // avatar: '/images/avatar/large/molly.png',
+    // date: 'Joined in 2013',
     header: ' Club House ',
-    description: 'Primary Contact',
+    // description: 'Primary Contact',
   },
   {
-    avatar: '/images/avatar/large/molly.png',
-    date: 'Joined in 2013',
+    // avatar: '/images/avatar/large/molly.png',
+    // date: 'Joined in 2013',
     header: ' Cycle tracks ',
-    description: 'Primary Contact',
+    // description: 'Primary Contact',
   },
 ]
 
