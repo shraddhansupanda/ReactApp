@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
-import { Confirm } from 'semantic-ui-react'
-import { Input } from 'semantic-ui-react'
-import {Button,Header,Segment,TransitionablePortal,} from 'semantic-ui-react'
+
+import {Button,Segment,TransitionablePortal,} from 'semantic-ui-react'
 import 'primeicons/primeicons.css';
 import 'primereact/resources/themes/nova-light/theme.css';
 import 'primereact/resources/primereact.css';
 import 'primeflex/primeflex.css';
 // import '../../index.css';
-import ReactDOM from 'react-dom';
 
 import {Growl} from 'primereact/growl';
 

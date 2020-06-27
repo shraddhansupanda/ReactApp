@@ -1,7 +1,6 @@
 import _ from 'lodash'
 import React, { Component, Fragment } from 'react'
 import { Button, Card, Divider, Image, Placeholder } from 'semantic-ui-react'
-import { Popup } from 'semantic-ui-react'
 import ConfirmExampleConfirm from './calander'
 
 
@@ -48,7 +47,7 @@ const cards = [
 class Booking extends Component {
   constructor(props){
     super(props);
-  this.state = { loading: false , popup: true, name:this.props.name, email:this.props.email}
+  this.state = { loading: false , name:this.props.name, email:this.props.email}
   }
 
 
@@ -59,9 +58,6 @@ class Booking extends Component {
     setTimeout(() => {
       this.setState({ loading: false })
     }, 3000)
-  }
-  popup=()=>{
-    this.setState({popop: true})
   }
 
   render() {
