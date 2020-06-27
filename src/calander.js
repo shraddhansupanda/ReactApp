@@ -21,7 +21,9 @@ class ConfirmExampleConfirm extends Component {
     super(props);
 
     this.showSuccess = this.showSuccess.bind(this);
+    this.minDate = new Date();
 
+    // this.showError = this.showError.bind(this);
 
     this.state = { open: false,startdate: null,enddate: null,name:this.props.name,email: this.props.email,type:this.props.type }
   }
@@ -30,14 +32,15 @@ class ConfirmExampleConfirm extends Component {
     handleClose = () => this.setState({ open: false })
 
     showSuccess() {
-      this.growl.show({severity: 'success', summary: 'Success Message', detail: 'Order submitted'});
+      if (this.state.startdate!== null && this.state.enddate!=null){
+      this.growl.show({severity: 'success', summary: 'Success Message', detail: 'Booking submitted'});
+      console.log(this.state)
+      this.setState({startdate: null,enddate:null})
+    }
+    else{
+        this.growl.show({severity: 'error', summary: 'Error Message', detail: 'Enter Date'});
+    }
   }
-
-
-    open=()=>{
-        console.log(this.state)
-        this.setState({startdate: null,enddate:null})}
-        
   render() {
     const { open } = this.state
     return (
@@ -67,13 +70,13 @@ class ConfirmExampleConfirm extends Component {
           <div>
               <h6>startDate</h6>
           <div className="p-col-6 p-md-4">
-                        <Calendar value={this.state.startdate} onChange={(e) => this.setState({ startdate: e.value })} showTime={true} showIcon={true} />
+                        <Calendar value={this.state.startdate} onChange={(e) => this.setState({ startdate: e.value })} showTime={true} showIcon={true} minDate={this.minDate} />
             </div> 
             <h6>endDate</h6>
             <div className="p-col-6 p-md-4">
-                        <Calendar value={this.state.enddate} onChange={(e) => this.setState({ enddate: e.value })} showTime={true} showIcon={true} />
+                        <Calendar value={this.state.enddate} onChange={(e) => this.setState({ enddate: e.value })} showTime={true} showIcon={true} minDate={this.minDate}/>
             </div> 
-            <Button onClick={this.open} onClick={this.showSuccess} >Book</Button>
+            <Button  onClick={this.showSuccess} >Book</Button>
           </div>
         </Segment>
       </TransitionablePortal>
