@@ -7,6 +7,8 @@ import 'primereact/resources/primereact.css';
 import 'primeflex/primeflex.css';
 // import '../../index.css';
 
+import axios from 'axios'
+
 import {Growl} from 'primereact/growl';
 
 
@@ -17,7 +19,7 @@ import { Calendar } from 'primereact/calendar';
 class ConfirmExampleConfirm extends Component {
   constructor(props){
     super(props);
-
+    this.inputRef = React.createRef();
     this.showSuccess = this.showSuccess.bind(this);
     this.minDate = new Date();
 
@@ -33,6 +35,12 @@ class ConfirmExampleConfirm extends Component {
       if (this.state.startdate!== null && this.state.enddate!=null){
       this.growl.show({severity: 'success', summary: 'Success Message', detail: 'Booking submitted'});
       console.log(this.state)
+      axios.post('https://jsonplaceholder.typicode.com/posts', this.state)
+      .then(json => console.log(json))
+        .catch(errr=>this.errr)
+
+
+
       this.setState({startdate: null,enddate:null})
     }
     else{
@@ -43,7 +51,7 @@ class ConfirmExampleConfirm extends Component {
     const { open } = this.state
     return (
 
-      <div>
+      <div ref={this.inputRef}>
         <Growl ref={(el) => this.growl = el} />
         <TransitionablePortal
         closeOnTriggerClick

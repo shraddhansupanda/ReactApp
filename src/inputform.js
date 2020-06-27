@@ -2,32 +2,44 @@ import React, { Component } from 'react'
 import { Form } from 'semantic-ui-react'
 import Booking  from "./booking"
 
+import {Growl} from 'primereact/growl';
+
 class Authentication extends Component {
   constructor(){
     super();
-  this.state = { name: '', email: '', submittedName: '', submittedEmail: '' ,hide:true}
+  this.state = { name: '', email: '',hide:true}
+  this.handleSubmit = this.handleSubmit.bind(this);
+  
   }
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
   handleSubmit = () => {
-    const { name, email } = this.state
 
-    this.setState({ submittedName: name, submittedEmail: email})
-    // console.log(name)
-  }
-  submit=()=>{
+
     console.log(this.state)
     if (this.state.name!=="" && this.state.email!==""){
-    this.setState({hide:false})
-    
+      this.setState({hide:false})
+      
+      }
+    else{
+      
+      this.growl.show({severity: 'error', summary: 'Denied', detail: 'Enter random name and emailid'});
+ 
+      // this.growl.show({severity: 'success', summary: 'Enter', detail: 'Enter random name and emailid'});
+
     }
-  }
+
+
+
+
+  } 
 
   render() {
-    const { name, email, submittedName, submittedEmail } = this.state
+    const { name, email } = this.state
     
     return (
       <div>
+        <Growl ref={(el) => this.growl = el} />
         {this.state.hide?
                 <Form onSubmit={this.handleSubmit}>
                 <Form.Group>
@@ -43,7 +55,7 @@ class Authentication extends Component {
                     value={email}
                     onChange={this.handleChange}
                   />
-                  <Form.Button onClick={this.submit}  content='Submit' />
+                  <Form.Button type="submit"  content='Submit' />
                 </Form.Group>
               </Form>
               :<Booking name ={name} email= {email} />

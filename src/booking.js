@@ -47,6 +47,7 @@ const cards = [
 class Booking extends Component {
   constructor(props){
     super(props);
+    this.inputRef = React.createRef();
   this.state = { loading: false , name:this.props.name, email:this.props.email}
   }
 
@@ -64,7 +65,7 @@ class Booking extends Component {
     const { loading } = this.state
 
     return (
-      <div>
+      <div ref={this.inputRef}>
       <h1>{this.props.name}</h1>
       <h1>{this.props.email}</h1>
       <Fragment>
