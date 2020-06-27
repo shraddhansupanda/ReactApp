@@ -8,26 +8,42 @@ import 'primereact/resources/primereact.css';
 import 'primeflex/primeflex.css';
 // import '../../index.css';
 import ReactDOM from 'react-dom';
+
+import {Growl} from 'primereact/growl';
+
+
+
+
 import { Calendar } from 'primereact/calendar';
 
 class ConfirmExampleConfirm extends Component {
   constructor(props){
     super(props);
+
+    this.showSuccess = this.showSuccess.bind(this);
+
+
     this.state = { open: false,startdate: null,enddate: null,name:this.props.name,email: this.props.email,type:this.props.type }
   }
     handleOpen = () => this.setState({ open: true })
   
     handleClose = () => this.setState({ open: false })
 
+    showSuccess() {
+      this.growl.show({severity: 'success', summary: 'Success Message', detail: 'Order submitted'});
+  }
+
+
     open=()=>{
         console.log(this.state)
         this.setState({startdate: null,enddate:null})}
+        
   render() {
     const { open } = this.state
     return (
 
       <div>
-        
+        <Growl ref={(el) => this.growl = el} />
         <TransitionablePortal
         closeOnTriggerClick
         onOpen={this.handleOpen}
@@ -42,7 +58,7 @@ class ConfirmExampleConfirm extends Component {
         }
       >
         <Segment
-          style={{ left: '40%', position: 'fixed', top: '50%', zIndex: 10000 }}
+          style={{ left: '40%', position: 'fixed', top: '50%', zIndex: 20000 }}
         >
           {/* <Header>This is an example portal</Header>
           <p>Portals have tons of great callback functions to hook into.</p>
@@ -51,13 +67,13 @@ class ConfirmExampleConfirm extends Component {
           <div>
               <h6>startDate</h6>
           <div className="p-col-6 p-md-4">
-                        <Calendar value={this.state.startdate} onChange={(e) => this.setState({ startdate: e.value })} showTime={true} showSeconds={true} />
+                        <Calendar value={this.state.startdate} onChange={(e) => this.setState({ startdate: e.value })} showTime={true} showIcon={true} />
             </div> 
             <h6>endDate</h6>
             <div className="p-col-6 p-md-4">
-                        <Calendar value={this.state.enddate} onChange={(e) => this.setState({ enddate: e.value })} showTime={true} showSeconds={true} />
+                        <Calendar value={this.state.enddate} onChange={(e) => this.setState({ enddate: e.value })} showTime={true} showIcon={true} />
             </div> 
-            <Button onClick={this.open}>Book</Button>
+            <Button onClick={this.open} onClick={this.showSuccess} >Book</Button>
           </div>
         </Segment>
       </TransitionablePortal>
