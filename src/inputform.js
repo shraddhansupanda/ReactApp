@@ -3,19 +3,23 @@ import { Form } from 'semantic-ui-react'
 import Booking  from "./booking"
 
 class Authentication extends Component {
-  state = { name: '', email: '', submittedName: '', submittedEmail: '' ,hide:true}
-
+  constructor(){
+    super();
+  this.state = { name: '', email: '', submittedName: '', submittedEmail: '' ,hide:true}
+  }
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
   handleSubmit = () => {
     const { name, email } = this.state
 
     this.setState({ submittedName: name, submittedEmail: email})
-    console.log(this.state)
+    // console.log(name)
   }
   submit=()=>{
+    console.log(this.state)
     if (this.state.name!=="" && this.state.email!==""){
     this.setState({hide:false})
+    
     }
   }
 
@@ -42,7 +46,7 @@ class Authentication extends Component {
                   <Form.Button onClick={this.submit}  content='Submit' />
                 </Form.Group>
               </Form>
-              :<Booking name = {this.state}/>
+              :<Booking name ={name} email= {email} />
         }
         {/* <strong>onChange:</strong>
         <pre>{JSON.stringify({ name, email }, null, 2)}</pre>

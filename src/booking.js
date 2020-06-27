@@ -46,8 +46,14 @@ const cards = [
 ]
 
 class Booking extends Component {
-  state = { loading: false , popup: true ,props:this.props}
+  constructor(props){
+    super(props);
+  this.state = { loading: false , popup: true, name:this.props.name, email:this.props.email}
+  }
+
+
   handleLoadingClick = () => {
+    console.log(this.state)
     this.setState({ loading: true })
 
     setTimeout(() => {
@@ -63,7 +69,8 @@ class Booking extends Component {
 
     return (
       <div>
-      <h1></h1>
+      <h1>{this.props.name}</h1>
+      <h1>{this.props.email}</h1>
       <Fragment>
         <Button loading={loading} onClick={this.handleLoadingClick} primary>
           Refresh
@@ -92,6 +99,7 @@ class Booking extends Component {
                     </Placeholder.Header>
                     <Placeholder.Paragraph>
                       <Placeholder.Line length='short' />
+                    
                     </Placeholder.Paragraph>
                   </Placeholder>
                 ) : (
@@ -106,7 +114,7 @@ class Booking extends Component {
               <Card.Content extra>
                 {loading?(
                 <Placeholder.Line length='short' />
-                ):<ConfirmExampleConfirm/>}
+                ):<ConfirmExampleConfirm name={this.state.name} email={this.state.email} type={card.header}/>}
               </Card.Content>
             </Card>
           ))}

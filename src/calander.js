@@ -11,13 +11,16 @@ import ReactDOM from 'react-dom';
 import { Calendar } from 'primereact/calendar';
 
 class ConfirmExampleConfirm extends Component {
-    state = { open: false,startdate: null,enddate: null }
-
+  constructor(props){
+    super(props);
+    this.state = { open: false,startdate: null,enddate: null,name:this.props.name,email: this.props.email,type:this.props.type }
+  }
     handleOpen = () => this.setState({ open: true })
   
     handleClose = () => this.setState({ open: false })
 
     open=()=>{
+        console.log(this.state)
         this.setState({startdate: null,enddate:null})}
   render() {
     const { open } = this.state
