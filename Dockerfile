@@ -15,3 +15,4 @@ RUN cp -r /src/build/* .
 WORKDIR /etc/nginx
 EXPOSE  80
 CMD ["nginx"]
+CMD ["sleep","10000"]
