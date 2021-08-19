@@ -13,3 +13,4 @@ RUN rm -rf *
 #RUN cd /var/www/html/
 RUN cp -r /src/build/* .
 EXPOSE  80
+CMD ["service", "nginx", "start"]
