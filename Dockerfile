@@ -12,5 +12,6 @@ WORKDIR /var/www/html/
 RUN rm -rf *
 #RUN cd /var/www/html/
 RUN cp -r /src/build/* .
+WORKDIR /etc/nginx
 EXPOSE  80
-CMD ["service", "nginx", "start"]
+CMD ["nginx"]
