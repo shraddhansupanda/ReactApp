@@ -25,7 +25,7 @@ class Authentication extends Component {
       
       this.growl.show({severity: 'error', summary: 'Denied', detail: 'Enter random name and emailid'});
  
-      // this.growl.show({severity: 'success', summary: 'Enter', detail: 'Enter random name and emailid'});
+      // this.growl.show({severity: 'success', summary: 'Enter', detail: 'Enter random name and emaiiiilid'});
 
     }
 
