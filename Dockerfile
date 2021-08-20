@@ -14,4 +14,7 @@ RUN rm -rf *
 RUN cp -r /src/build/* .
 WORKDIR /etc/nginx
 EXPOSE  80
+# CMD ["service","nginx","start"]
+# CMD ["nginx"]
+# CMD ["sleep",'10000']
 CMD ["nginx","-g","daemon off;"]
